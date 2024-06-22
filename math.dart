@@ -14,16 +14,19 @@ main() {
   print('If you want to calculate the square root of a number, press 3.');
   print('If you want to find the maximum between two numbers, press 4.');
   print('If you want to find the minimum between two numbers, press 5.');
+  // pronpting the user to select a math function
   var num = stdin.readLineSync();
   var numConverted = int.parse(num ?? '0');
   for (int a = 1; a <= 3; a++) {
     if (numConverted == 1) {
       print('Please enter minimum number:');
       var min = stdin.readLineSync();
+      // convert min from string to int value
       var minConverted = int.parse(min ?? '0');
       print('Please enter maximum number:');
       var max = stdin.readLineSync();
       var maxConverted = int.parse(max ?? '0');
+      //calculate the random between max and min
       int rand =
           minConverted + Random().nextInt(maxConverted + 1) - minConverted;
       print('The random number between $min and $max is $rand');
@@ -70,10 +73,11 @@ main() {
       break;
     } else if (numConverted < 1 || numConverted > 5) {
       if (a == 3) {
-        print("Your three attempts failled!");
+        print("Your $a attempts failled!");
+        print("Game over!");
         break;
       }
-      print('Attempt $a failled!');
+      print('Your attempt $a failled!');
       print('The number you entered is not in the range between 1 and 5');
       print('Please enter a number once again');
       num = stdin.readLineSync();
